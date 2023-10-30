@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Link, Route, Switch } from "react-router-dom";
+import { Rewarders } from "./components/Rewarders";
+import { Fusd } from "./pages/fusd";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="w-1/2 mx-auto mt-6">
+        <Link className="mr-6" to="/fusd">
+          fUSD
+        </Link>
+        <Link to="/">Rewards</Link>
+      </div>
+      <Switch>
+        <Route exact path="/">
+          <Rewarders />
+        </Route>
+        <Route exact path="/fusd">
+          <Fusd />
+        </Route>
+      </Switch>
     </div>
   );
 }
